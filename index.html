@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0088cc">
+  <title>Verificação de Segurança - Telegram</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    // Inicializa com o seu ID de Pixel
+    fbq('init', '1066768842543167');
+
+    // Registra a Compra de R$ 50,00
+    // O eventID dinâmico ajuda a evitar que o Facebook conte a mesma compra duas vezes
+    fbq('track', 'Purchase', {
+      value: 50.00,
+      currency: 'BRL'
+    }, {eventID: 'pur_' + Date.now()});
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1066768842543167&ev=Purchase&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+    ttq.load('D6STFF3C77UFTE0HMOO0');
+    ttq.page();
+    ttq.track('CompletePayment', {
+      content_type: 'product',
+      value: 50.00,
+      currency: 'BRL'
+    });
+  }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+      padding: 24px 16px 36px;
+      overflow-x: hidden;
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background:
+        linear-gradient(
+          145deg,
+          #70ccf5 0%,
+          #229ed9 48%,
+          #0077b5 100%
+        );
+      isolation: isolate;
+    }
+
+    body::before,
+    body::after {
+      position: fixed;
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::before {
+      top: -110px;
+      left: -90px;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.44) 0%,
+        rgba(255, 255, 255, 0.10) 52%,
+        transparent 73%
+      );
+    }
+
+    body::after {
+      right: -130px;
+      bottom: -140px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(
+        circle,
+        rgba(0, 62, 98, 0.34) 0%,
+        transparent 72%
+      );
+    }
+
+    .decorative-glow {
+      position: fixed;
+      top: 42%;
+      right: 5%;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.16) 0%,
+        transparent 72%
+      );
+      filter: blur(2px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 32px 24px 26px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow:
+        0 24px 58px rgba(0, 64, 100, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .success-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 18px;
+      border: 3px solid rgba(255, 255, 255, 0.88);
+      border-radius: 50%;
+      color: #0088cc;
+      font-size: 38px;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow:
+        0 14px 34px rgba(0, 72, 110, 0.26),
+        0 0 0 7px rgba(255, 255, 255, 0.08);
+      animation: iconAppear 0.8s ease-out;
+    }
+
+    .content h1 {
+      margin-bottom: 14px;
+      color: #fff;
+      font-size: clamp(25px, 6vw, 36px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      text-shadow: 0 2px 6px rgba(0, 54, 84, 0.28);
+    }
+
+    .success-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 26px;
+      padding: 10px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      color: #0077b5;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 8px 20px rgba(0, 67, 102, 0.14);
+    }
+
+    .content p {
+      margin: 18px 0;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: clamp(16px, 4vw, 18px);
+      line-height: 1.55;
+      text-shadow: 0 1px 3px rgba(0, 54, 84, 0.22);
+    }
+
+    .footer-warning {
+      margin: 18px 0 20px;
+      padding: 16px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-left: 4px solid rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 13px;
+      line-height: 1.55;
+      text-align: left;
+      background: rgba(0, 75, 115, 0.20);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    }
+
+    .footer-warning i {
+      margin-right: 6px;
+    }
+
+    .price-box {
+      margin: 16px 0 22px;
+      padding: 24px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 20px;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #229ed9 0%, #0088cc 100%);
+      box-shadow:
+        0 14px 34px rgba(0, 72, 112, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .price-box .amount {
+      display: block;
+      margin: 10px 0;
+      font-size: clamp(38px, 10vw, 50px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .price-box small {
+      display: block;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      line-height: 1.45;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 550px;
+      min-height: 64px;
+      margin-top: 6px;
+      padding: 18px 24px;
+      overflow: hidden;
+      border: none;
+      border-radius: 20px;
+      color: #0088cc;
+      font-size: clamp(18px, 5vw, 25px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow:
+        0 16px 38px rgba(0, 64, 100, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.60);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+      animation: pulse 2s infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn::before {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(34, 158, 217, 0.18),
+        transparent
+      );
+      content: "";
+      transition: left 0.55s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 20px 44px rgba(0, 59, 94, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72);
+      filter: brightness(1.02);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.99);
+    }
+
+    .telegram-icon {
+      flex: 0 0 auto;
+      margin-right: 2px;
+      font-size: 1.15em;
+    }
+
+    /* Bloco de reembolso em verde */
+    .refund-notice {
+      margin: 26px 0 0;
+      padding: 18px;
+      border: 2px solid #22c55e;
+      border-radius: 16px;
+      color: #065f46;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+      background: #dcfce7;
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.18);
+    }
+
+    .refund-notice strong {
+      color: #064e3b;
+      font-weight: 800;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow:
+          0 16px 38px rgba(0, 64, 100, 0.30),
+          0 0 0 0 rgba(255, 255, 255, 0.32);
+      }
+
+      50% {
+        transform: scale(1.025);
+        box-shadow:
+          0 20px 46px rgba(0, 59, 94, 0.36),
+          0 0 0 10px rgba(255, 255, 255, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow:
+          0 16px 38px rgba(0, 64, 100, 0.30),
+          0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.985);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes iconAppear {
+      from {
+        opacity: 0;
+        transform: scale(0.72);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 12px 24px;
+      }
+
+      .content {
+        padding: 28px 17px 22px;
+        border-radius: 24px;
+      }
+
+      .success-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 33px;
+      }
+
+      .content h1 {
+        font-size: 27px;
+      }
+
+      .content p {
+        margin: 16px 0;
+      }
+
+      .price-box {
+        padding: 21px 16px;
+      }
+
+      .btn {
+        min-height: 58px;
+        padding: 16px 18px;
+        border-radius: 17px;
+        font-size: 17px;
+      }
+
+      .refund-notice {
+        padding: 16px 13px;
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="decorative-glow"></div>
+
+  <main class="content">
+    <div class="success-icon" aria-hidden="true">
+      <i class="fa-solid fa-check"></i>
+    </div>
+
+    <h1>Pagamento Aprovado!</h1>
+
+    <div class="success-badge">VAGA GARANTIDA</div>
+
+    <p>
+      Parabéns! Sua vaga está <strong>100% confirmada</strong> no grupo exclusivo.
+    </p>
+
+    <p>
+      Para concluir a liberação do acesso, finalize a
+      <strong>etapa de proteção e validação de segurança</strong> abaixo:
+    </p>
+
+    <div class="footer-warning">
+      <i class="fa-solid fa-shield-halved"></i>
+      Esta etapa ajuda a proteger seus dados e reduzir acessos não autorizados,
+      mantendo o ambiente exclusivo mais seguro para os participantes.
+    </div>
+
+    <div class="price-box">
+      <i class="fa-solid fa-coins"></i>
+      Protocolo de Privacidade
+
+      <span class="amount">R$ 6,90</span>
+
+      <small>
+        Pagamento único, processado em ambiente seguro e reembolsável
+      </small>
+    </div>
+
+    <a href="https://telegram.me/PrivacidadeBR4_bot" class="btn">
+      <i class="fa-brands fa-telegram telegram-icon"></i>
+      Desbloquear PICANTES AMANDA
+    </a>
+
+    <div class="refund-notice">
+      <i class="fa-solid fa-shield-check"></i>
+      <strong>REEMBOLSO GARANTIDO!</strong><br>
+      Valor devolvido 100% em até 5 minutos após a verificação
+    </div>
+  </main>
+</body>
+</html>
